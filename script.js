@@ -9,6 +9,15 @@ function generateCertificate() {
     const identifier = document.getElementById('identifier').value;
     const issueDate = new Date().toLocaleDateString();
 
+    // تحقق من الحقول الفارغة
+    if (!name || !idNumber || !service || !dob || !gender || !nationality || !identifier) {
+        document.getElementById('errorMessage').innerText = "الرجاء تعبئة جميع الحقول المطلوبة.";
+        document.getElementById('errorMessage').style.display = 'block';
+        return; // إيقاف العملية إذا كان هناك حقل فارغ
+    } else {
+        document.getElementById('errorMessage').style.display = 'none'; // إخفاء رسالة الخطأ
+    }
+
     // تعبئة بيانات الشهادة في العنصر المخفي
     document.getElementById('certificateName').innerText = `السيد/السيدة ${name}`;
     document.getElementById('certificateService').innerText = `قد استوفى جميع المتطلبات والمعايير المحددة من قبل المنصة، وهو معتمد لدى ${service} وفقًا للمعايير المعتمدة لدينا.`;
