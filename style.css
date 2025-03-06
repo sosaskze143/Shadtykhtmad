@@ -48,3 +48,10 @@ button:hover {
 #certificateOutput {
     margin-top: 20px;
 }
+
+#errorMessage {
+    color: red;
+    font-size: 18px;
+    margin-top: 20px;
+    display: none;
+}
