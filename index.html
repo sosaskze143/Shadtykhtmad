@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إنشاء شهادة اعتماد</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -39,14 +38,18 @@
         <button type="button" onclick="generateCertificate()">إنشاء الشهادة</button>
     </form>
 
-    <div id="verificationSection" style="display: none;">
-        <h2>التحقق من صحة الشهادة</h2>
-        <input type="text" id="verificationCode" placeholder="أدخل رمز التحقق">
-        <button onclick="verifyCertificate()">تحقق</button>
-        <p id="verificationResult"></p>
+    <!-- عنصر مخفي للشهادة -->
+    <div id="certificateTemplate" style="display: none; width: 800px; height: 600px; background-image: url('gold-frame.jpg'); background-size: cover; padding: 20px; text-align: center;">
+        <h2 style="font-family: 'Amiri', serif; font-size: 32px; color: #333;">شهادة اعتماد</h2>
+        <p style="font-family: 'Amiri', serif; font-size: 20px; color: #555;">تشهد منصة خدماتي بأن:</p>
+        <p style="font-family: 'Amiri', serif; font-size: 20px; color: #555;" id="certificateName"></p>
+        <p style="font-family: 'Amiri', serif; font-size: 20px; color: #555;" id="certificateService"></p>
+        <p style="font-family: 'Amiri', serif; font-size: 20px; color: #555;" id="certificateDetails"></p>
+        <img src="official-seal.png" alt="ختم المنصة" style="width: 100px; margin-top: 20px;">
+        <img src="signature.png" alt="توقيع المسؤول" style="width: 100px; margin-top: 20px;">
     </div>
 
-    <!-- عنصر مخفي للباركود -->
-    <svg id="barcode" style="display: none;"></svg>
+    <!-- عنصر لعرض الصورة -->
+    <div id="certificateOutput" style="margin-top: 20px;"></div>
 </body>
 </html>
