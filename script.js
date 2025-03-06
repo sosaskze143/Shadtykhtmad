@@ -12,7 +12,7 @@ function generateCertificateNumber() {
 }
 
 function generateCertificate() {
-    const platformName = document.getElementById('platformName').value;
+    const platformName = "خدماتي"; // اسم المنصة ثابت
     const name = document.getElementById('name').value;
     const idNumber = document.getElementById('idNumber').value;
     const service = document.getElementById('service').value;
