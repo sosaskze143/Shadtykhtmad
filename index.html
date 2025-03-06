@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء شهادة اعتماد</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>إدخال المعلومات</h1>
+    <form id="certificateForm">
+        <label for="platformName">اسم المنصة:</label>
+        <input type="text" id="platformName" required>
+
+        <label for="name">الاسم الكامل:</label>
+        <input type="text" id="name" required>
+
+        <label for="idNumber">رقم الهوية:</label>
+        <input type="text" id="idNumber" required>
+
+        <label for="service">مجال الاعتماد أو الخدمة المقدمة:</label>
+        <input type="text" id="service" required>
+
+        <label for="dob">تاريخ الميلاد:</label>
+        <input type="date" id="dob" required>
+
+        <label for="gender">الجنس:</label>
+        <select id="gender" required>
+            <option value="ذكر">ذكر</option>
+            <option value="أنثى">أنثى</option>
+        </select>
+
+        <label for="nationality">الجنسية:</label>
+        <input type="text" id="nationality" required>
+
+        <label for="identifier">رقم التعريف:</label>
+        <input type="text" id="identifier" required>
+
+        <button type="button" onclick="generateCertificate()">إنشاء الشهادة</button>
+    </form>
+
+    <div id="verificationSection" style="display: none;">
+        <h2>التحقق من صحة الشهادة</h2>
+        <input type="text" id="verificationCode" placeholder="أدخل رمز التحقق">
+        <button onclick="verifyCertificate()">تحقق</button>
+        <p id="verificationResult"></p>
+    </div>
+</body>
+</html>
